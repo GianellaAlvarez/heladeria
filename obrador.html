@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">Gelato &amp; Calma</a>
 
@@ -27,7 +27,7 @@
 
   <main>
     <section class="page-header">
-      <div class="container">
+      <div class="container reveal">
         <span class="eyebrow">Nuestra filosofía</span>
         <h1>Ingredientes reales, cero atajos.</h1>
         <p>Elaboramos cada cubeta a la vista del público respetando los tiempos de maduración.</p>
@@ -36,7 +36,7 @@
 
     <section class="section">
       <div class="container about-grid">
-        <div class="story-content">
+        <div class="story-content reveal">
           <h2>Por qué nuestro helado sabe diferente</h2>
           <p>
             En <strong>Gelato &amp; Calma</strong> no utilizamos polvos preparados ni grasas vegetales refinadas. Trabajamos directamente con ganaderías de pastoreo de la sierra y productores locales de fruta.
@@ -44,6 +44,22 @@
           <p>
             Batimos a baja velocidad para incorporar menos aire: el resultado es un helado más denso, cremoso y servido a la temperatura justa para no anestesiar el paladar.
           </p>
+
+          <!-- Contadores animados -->
+          <div class="stats-row">
+            <div class="stat-item">
+              <strong class="counter" data-target="100" data-suffix="%">0%</strong>
+              <span>Ingredientes naturales</span>
+            </div>
+            <div class="stat-item">
+              <strong class="counter" data-target="12" data-suffix="h">0h</strong>
+              <span>Maduración en frío</span>
+            </div>
+            <div class="stat-item">
+              <strong class="counter" data-target="0" data-suffix="">0</strong>
+              <span>Colorantes artificiales</span>
+            </div>
+          </div>
 
           <div class="pillars-grid">
             <div class="pillar">
@@ -57,7 +73,7 @@
           </div>
         </div>
 
-        <aside class="info-box">
+        <aside class="info-box reveal">
           <h3>Horario y Ubicación</h3>
           <ul class="info-list">
             <li><span>Lunes a jueves</span><strong>13:00 – 22:30</strong></li>

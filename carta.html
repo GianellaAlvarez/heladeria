@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">Gelato &amp; Calma</a>
 
@@ -27,12 +27,11 @@
 
   <main>
     <section class="page-header">
-      <div class="container">
+      <div class="container reveal">
         <span class="eyebrow">Nuestra vitrina diaria</span>
         <h1>Sabores de temporada</h1>
-        <p>Todos nuestros helados son sin gluten (disponemos de cucuruchos aptos para celíacos).</p>
+        <p>Todos nuestros helados son sin gluten. Pasa el cursor por cada sabor para ver su tono natural.</p>
 
-        <!-- Botones de filtro -->
         <div class="filter-bar" role="group" aria-label="Filtrar sabores">
           <button class="filter-btn active" data-filter="todos">Todos</button>
           <button class="filter-btn" data-filter="crema">Cremas clásicas</button>
@@ -45,69 +44,86 @@
     <section class="section">
       <div class="container">
         <div class="cards-grid" id="flavors-grid">
-          <article class="card flavor-item" data-category="crema">
-            <div class="card-top">
-              <span class="tag tag-crema">Crema</span>
-              <span class="card-price">3,60 €</span>
+          <article class="card flavor-card flavor-item reveal" data-category="crema" data-flavor-color="#d8e5c8">
+            <div class="flavor-splash" aria-hidden="true"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <span class="tag tag-crema">Crema</span>
+                <span class="card-price">3,60 €</span>
+              </div>
+              <h3>Pistacho de Bronte</h3>
+              <p>100% pasta pura de pistacho siciliano tostado artesanalmente.</p>
             </div>
-            <h3>Pistacho de Bronte</h3>
-            <p>100% pasta pura de pistacho siciliano tostado artesanalmente.</p>
             <a href="https://wa.me/34600123456?text=Hola,%20quiero%20encargar%20helado%20de%20Pistacho%20de%20Bronte" target="_blank" rel="noopener" class="order-link">Encargar este sabor →</a>
           </article>
 
-          <article class="card flavor-item" data-category="crema">
-            <div class="card-top">
-              <span class="tag tag-crema">Crema</span>
-              <span class="card-price">3,40 €</span>
+          <article class="card flavor-card flavor-item reveal" data-category="crema" data-flavor-color="#faefd4">
+            <div class="flavor-splash" aria-hidden="true"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <span class="tag tag-crema">Crema</span>
+                <span class="card-price">3,40 €</span>
+              </div>
+              <h3>Vainilla Bourbon</h3>
+              <p>Infusión lenta de vainas enteras de Madagascar sobre leche fresca ecológica.</p>
             </div>
-            <h3>Vainilla Bourbon</h3>
-            <p>Infusión lenta de vainas enteras de Madagascar sobre leche fresca ecológica.</p>
             <a href="https://wa.me/34600123456?text=Hola,%20quiero%20encargar%20helado%20de%20Vainilla%20Bourbon" target="_blank" rel="noopener" class="order-link">Encargar este sabor →</a>
           </article>
 
-          <article class="card flavor-item" data-category="vegano">
-            <div class="card-top">
-              <span class="tag tag-vegano">Vegano</span>
-              <span class="card-price">3,40 €</span>
+          <article class="card flavor-card flavor-item reveal" data-category="vegano" data-flavor-color="#fde4a6">
+            <div class="flavor-splash" aria-hidden="true"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <span class="tag tag-vegano">Vegano</span>
+                <span class="card-price">3,40 €</span>
+              </div>
+              <h3>Mango Alphonso</h3>
+              <p>Fruta fresca triturada al momento, sin lácteos y súper refrescante.</p>
             </div>
-            <h3>Mango Alphonso</h3>
-            <p>Fruta fresca triturada al momento, sin lácteos y súper refrescante.</p>
             <a href="https://wa.me/34600123456?text=Hola,%20quiero%20encargar%20sorbete%20de%20Mango%20Alphonso" target="_blank" rel="noopener" class="order-link">Encargar este sabor →</a>
           </article>
 
-          <article class="card flavor-item" data-category="vegano">
-            <div class="card-top">
-              <span class="tag tag-vegano">Vegano</span>
-              <span class="card-price">3,30 €</span>
+          <article class="card flavor-card flavor-item reveal" data-category="vegano" data-flavor-color="#dff2d8">
+            <div class="flavor-splash" aria-hidden="true"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <span class="tag tag-vegano">Vegano</span>
+                <span class="card-price">3,30 €</span>
+              </div>
+              <h3>Limón y Hierbabuena</h3>
+              <p>Zumo recién exprimido de limones de Murcia con hojas frescas del huerto.</p>
             </div>
-            <h3>Limón y Hierbabuena</h3>
-            <p>Zumo recién exprimido de limones de Murcia con hojas frescas del huerto.</p>
             <a href="https://wa.me/34600123456?text=Hola,%20quiero%20encargar%20sorbete%20de%20Lim%C3%B3n%20y%20Hierbabuena" target="_blank" rel="noopener" class="order-link">Encargar este sabor →</a>
           </article>
 
-          <article class="card flavor-item" data-category="especial">
-            <div class="card-top">
-              <span class="tag tag-especial">Especial</span>
-              <span class="card-price">3,80 €</span>
+          <article class="card flavor-card flavor-item reveal" data-category="especial" data-flavor-color="#ecd8e8">
+            <div class="flavor-splash" aria-hidden="true"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <span class="tag tag-especial">Especial</span>
+                <span class="card-price">3,80 €</span>
+              </div>
+              <h3>Mascarpone e Higos</h3>
+              <p>Queso mascarpone cremoso con mermelada casera de higos negros.</p>
             </div>
-            <h3>Mascarpone e Higos</h3>
-            <p>Queso mascarpone cremoso con mermelada casera de higos negros.</p>
             <a href="https://wa.me/34600123456?text=Hola,%20quiero%20encargar%20helado%20de%20Mascarpone%20e%20Higos" target="_blank" rel="noopener" class="order-link">Encargar este sabor →</a>
           </article>
 
-          <article class="card flavor-item" data-category="especial">
-            <div class="card-top">
-              <span class="tag tag-especial">Especial</span>
-              <span class="card-price">3,80 €</span>
+          <article class="card flavor-card flavor-item reveal" data-category="especial" data-flavor-color="#f2dec4">
+            <div class="flavor-splash" aria-hidden="true"></div>
+            <div class="card-body">
+              <div class="card-top">
+                <span class="tag tag-especial">Especial</span>
+                <span class="card-price">3,80 €</span>
+              </div>
+              <h3>Caramelo Salado y Nueces</h3>
+              <p>Caramelo tostado en casa con flor de sal y nueces pecanas garrapiñadas.</p>
             </div>
-            <h3>Caramelo Salado y Nueces</h3>
-            <p>Caramelo tostado en casa con flor de sal y nueces pecanas garrapiñadas.</p>
             <a href="https://wa.me/34600123456?text=Hola,%20quiero%20encargar%20helado%20de%20Caramelo%20Salado" target="_blank" rel="noopener" class="order-link">Encargar este sabor →</a>
           </article>
         </div>
 
-        <!-- Formatos y precios -->
-        <div class="formats-box">
+        <div class="formats-box reveal">
           <h3>Formatos disponibles</h3>
           <ul class="info-list">
             <li><span>Cucurucho artesanal o tarrina pequeña (2 sabores)</span><strong>3,50 €</strong></li>
