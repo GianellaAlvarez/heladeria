@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Menú responsive en móvil
+  // 1. Menú móvil
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.getElementById("nav-links");
 
   if (menuToggle && navLinks) {
     menuToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
     });
 
     navLinks.querySelectorAll("a").forEach((link) => {
@@ -17,170 +17,163 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. Cabecera dinámica al hacer scroll
+  // 2. Barra de progreso superior y sombra en cabecera
+  const progressBar = document.getElementById("scroll-progress");
   const header = document.getElementById("site-header");
-  if (header) {
-    window.addEventListener(
-      "scroll",
-      () => {
-        header.classList.toggle("scrolled", window.scrollY > 20);
-      },
-      { passive: true }
-    );
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (progressBar && docHeight > 0) {
+        progressBar.style.width = `${(scrollTop / docHeight) * 100}%`;
+      }
+      if (header) {
+        header.classList.toggle("scrolled", scrollTop > 16);
+      }
+    },
+    { passive: true }
+  );
+
+  // 3. Burbujas suaves del Hero que siguen un poco al ratón
+  const blobPink = document.getElementById("blob-pink");
+  const blobMint = document.getElementById("blob-mint");
+
+  if (blobPink || blobMint) {
+    window.addEventListener("mousemove", (e) => {
+      const moveX = (e.clientX / window.innerWidth - 0.5) * 28;
+      const moveY = (e.clientY / window.innerHeight - 0.5) * 28;
+      if (blobPink) blobPink.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      if (blobMint) blobMint.style.transform = `translate(${-moveX}px, ${-moveY}px)`;
+    });
   }
 
-  // 3. Asignar el color de cada helado desde data-flavor-color y efecto de seguimiento del ratón
+  // 4. Tarjeta destacada con inclinación suave
+  const tiltCard = document.querySelector(".tilt-card");
+  if (tiltCard) {
+    tiltCard.addEventListener("mousemove", (e) => {
+      const rect = tiltCard.getBoundingClientRect();
+      const rx = ((e.clientY - rect.top) / rect.height - 0.5) * -8;
+      const ry = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+      tiltCard.style.transform = `perspective(750px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+
+    tiltCard.addEventListener("mouseleave", () => {
+      tiltCard.style.transform = "perspective(750px) rotateX(0deg) rotateY(0deg)";
+    });
+  }
+
+  // 5. Efecto de color del sabor al pasar el cursor
   const flavorCards = document.querySelectorAll(".flavor-card");
   flavorCards.forEach((card) => {
-    const color = card.getAttribute("data-flavor-color");
-    const splash = card.querySelector(".flavor-splash");
+    const color = card.getAttribute("data-color");
+    const border = card.getAttribute("data-border");
+    const wave = card.querySelector(".flavor-wave");
 
-    if (color) {
-      card.style.setProperty("--flavor-bg", color);
-    }
+    if (color) card.style.setProperty("--flavor-color", color);
+    if (border) card.style.setProperty("--flavor-border", border);
 
-    // La onda de color nace exactamente donde entra o se mueve el cursor
-    if (splash) {
+    if (wave) {
       card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
         const y = ((e.clientY - rect.top) / rect.height) * 100;
-        splash.style.clipPath = `circle(150% at ${x}% ${y}%)`;
+        wave.style.clipPath = `circle(155% at ${x}% ${y}%)`;
       });
 
       card.addEventListener("mouseleave", (e) => {
         const rect = card.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
         const y = ((e.clientY - rect.top) / rect.height) * 100;
-        splash.style.clipPath = `circle(0% at ${x}% ${y}%)`;
+        wave.style.clipPath = `circle(0% at ${x}% ${y}%)`;
       });
     }
   });
 
-  // 4. Efecto 3D sutil (Tilt) en la tarjeta destacada de portada
-  const tiltCards = document.querySelectorAll(".tilt-card");
-  tiltCards.forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const rotateX = ((y / rect.height) - 0.5) * -10;
-      const rotateY = ((x / rect.width) - 0.5) * 10;
-      card.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "perspective(700px) rotateX(0deg) rotateY(0deg)";
-    });
-  });
-
-  // 5. Aparición escalonada elegante al hacer scroll (IntersectionObserver)
-  const revealElements = document.querySelectorAll(".reveal");
+  // 6. Aparición al hacer scroll
+  const reveals = document.querySelectorAll(".reveal");
   const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry, index) => {
+    (entries, obs) => {
+      entries.forEach((entry, idx) => {
         if (entry.isIntersecting) {
           setTimeout(() => {
             entry.target.classList.add("is-visible");
-          }, index * 75);
-          observer.unobserve(entry.target);
+          }, idx * 70);
+          obs.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.12 }
+    { threshold: 0.1 }
   );
+  reveals.forEach((el) => revealObserver.observe(el));
 
-  revealElements.forEach((el) => revealObserver.observe(el));
-
-  // 6. Contadores animados en El Obrador
+  // 7. Contadores animados en El Obrador
   const counters = document.querySelectorAll(".counter");
   const counterObserver = new IntersectionObserver(
-    (entries, observer) => {
+    (entries, obs) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         const el = entry.target;
         const target = Number(el.getAttribute("data-target"));
         const suffix = el.getAttribute("data-suffix") || "";
-        const duration = 1100;
-        const startTime = performance.now();
+        const duration = 1000;
+        const start = performance.now();
 
-        const updateCounter = (currentTime) => {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
+        const step = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
-          const currentVal = Math.round(eased * target);
-          el.textContent = `${currentVal}${suffix}`;
-
-          if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-          }
+          el.textContent = `${Math.round(eased * target)}${suffix}`;
+          if (progress < 1) requestAnimationFrame(step);
         };
 
-        requestAnimationFrame(updateCounter);
-        observer.unobserve(el);
+        requestAnimationFrame(step);
+        obs.unobserve(el);
       });
     },
-    { threshold: 0.4 }
+    { threshold: 0.35 }
   );
+  counters.forEach((c) => counterObserver.observe(c));
 
-  counters.forEach((counter) => counterObserver.observe(counter));
+  // 8. Filtro de sabores en carta.html
+  const filterChips = document.querySelectorAll(".filter-chip");
+  const filterItems = document.querySelectorAll(".flavor-filter-item");
 
-  // 7. Filtro animado de sabores en carta.html
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const flavorItems = document.querySelectorAll(".flavor-item");
+  if (filterChips.length && filterItems.length) {
+    filterChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        filterChips.forEach((c) => c.classList.remove("active"));
+        chip.classList.add("active");
 
-  if (filterButtons.length > 0 && flavorItems.length > 0) {
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        filterButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-
-        const selected = button.getAttribute("data-filter");
-
-        flavorItems.forEach((item) => {
-          const category = item.getAttribute("data-category");
-          const matches = selected === "todos" || selected === category;
-
-          if (matches) {
-            item.style.display = "flex";
-            requestAnimationFrame(() => {
-              item.style.opacity = "1";
-              item.style.transform = "translateY(0)";
-            });
-          } else {
-            item.style.opacity = "0";
-            item.style.transform = "translateY(12px)";
-            setTimeout(() => {
-              if (!button.classList.contains("active")) return;
-              item.style.display = "none";
-            }, 220);
-          }
+        const selected = chip.getAttribute("data-filter");
+        filterItems.forEach((item) => {
+          const cat = item.getAttribute("data-category");
+          item.style.display = selected === "todos" || selected === cat ? "block" : "none";
         });
       });
     });
   }
 
-  // 8. Validación del formulario en contacto.html
-  const contactForm = document.getElementById("contact-form");
-  const formStatus = document.getElementById("form-status");
+  // 9. Validación del formulario en contacto.html
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
 
-  if (contactForm && formStatus) {
-    contactForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
+  if (form && status) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
       const nombre = document.getElementById("nombre").value.trim();
       const email = document.getElementById("email").value.trim();
       const mensaje = document.getElementById("mensaje").value.trim();
 
       if (!nombre || !email || !mensaje) {
-        formStatus.style.color = "#c85a32";
-        formStatus.textContent = "Por favor, completa todos los campos obligatorios.";
+        status.style.color = "#e64862";
+        status.textContent = "Completa los campos obligatorios antes de enviar.";
         return;
       }
 
-      formStatus.style.color = "#4f7758";
-      formStatus.textContent = `¡Gracias, ${nombre}! Hemos recibido tu consulta y te responderemos muy pronto.`;
-      contactForm.reset();
+      status.style.color = "#389858";
+      status.textContent = `¡Listo, ${nombre}! Mensaje enviado. Te responderemos enseguida.`;
+      form.reset();
     });
   }
 });

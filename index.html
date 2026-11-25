@@ -3,125 +3,200 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gelato & Calma — Heladería Artesanal</title>
+  <title>Chispa Gelato — Heladería Artesanal y Colorida</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- Cinta superior alegre -->
+  <div class="top-ticker">
+    <div class="ticker-track">
+      <span>🍨 Barquillos recién horneados cada hora</span>
+      <span>•</span>
+      <span>🍓 Fresa silvestre y pistacho tostado en vitrina</span>
+      <span>•</span>
+      <span>🛵 Encargos rápidos por WhatsApp</span>
+      <span>•</span>
+      <span>🌿 Opciones veganas y sin gluten</span>
+      <span>•</span>
+      <span>🍨 Barquillos recién horneados cada hora</span>
+      <span>•</span>
+      <span>🍓 Fresa silvestre y pistacho tostado en vitrina</span>
+      <span>•</span>
+      <span>🛵 Encargos rápidos por WhatsApp</span>
+      <span>•</span>
+      <span>🌿 Opciones veganas y sin gluten</span>
+    </div>
+  </div>
+
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">Gelato &amp; Calma</a>
+      <a href="index.html" class="logo">
+        <span class="logo-scoop">🍧</span>
+        <span>Chispa<strong>Gelato</strong></span>
+      </a>
 
       <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
 
       <nav class="nav-links" id="nav-links">
         <a href="index.html" class="active">Inicio</a>
-        <a href="carta.html">Sabores y Carta</a>
+        <a href="carta.html">Sabores</a>
         <a href="obrador.html">El Obrador</a>
-        <a href="contacto.html" class="btn-small">Contacto y Encargos</a>
+        <a href="contacto.html" class="nav-pill">Contacto</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
+    <!-- Hero colorido con burbujas flotantes e ilustración interactiva -->
     <section class="hero">
+      <div class="blob blob-pink" id="blob-pink"></div>
+      <div class="blob blob-mint" id="blob-mint"></div>
+
       <div class="container hero-grid">
         <div class="hero-content reveal">
-          <span class="eyebrow">Obrador propio · Leche fresca de granja</span>
-          <h1>Helado artesanal batido despacio, cada mañana.</h1>
-          <p class="hero-text">
-            Sin colorantes artificiales ni bases industriales. Pistacho de Bronte, fruta de temporada y barquillos recién horneados en nuestro local.
+          <span class="badge-fun">✨ Vitrina recién abierta · Sabores a tope</span>
+          <h1>Helados llenos de <span>color, fruta y cremosidad</span>.</h1>
+          <p class="hero-lead">
+            Preparamos tandas pequeñas cada día con fruta fresca, leche de granja y cacao real. Nada aburrido ni artificial: puro antojo en cada bola.
           </p>
+
           <div class="hero-actions">
-            <a href="carta.html" class="btn-primary">Explorar sabores</a>
-            <a href="https://wa.me/34600123456?text=Hola%20Gelato%20%26%20Calma,%20me%20gustar%C3%ADa%20encargar%20una%20tarrina" target="_blank" rel="noopener" class="btn-whatsapp">
+            <a href="carta.html" class="btn-primary">Ver todos los sabores</a>
+            <a href="https://wa.me/34600123456?text=Hola%20Chispa%20Gelato!%20Quiero%20pedir%20helados%20hoy" target="_blank" rel="noopener" class="btn-whatsapp">
               Pedir por WhatsApp
             </a>
           </div>
+
+          <div class="hero-perks">
+            <div>
+              <strong>+18</strong>
+              <span>Sabores en rotación</span>
+            </div>
+            <div>
+              <strong>100%</strong>
+              <span>Fruta natural en sorbetes</span>
+            </div>
+            <div>
+              <strong>25 min</strong>
+              <span>Tarrinas listas por encargo</span>
+            </div>
+          </div>
         </div>
 
-        <div class="hero-visual reveal">
-          <div class="visual-card tilt-card">
-            <span class="badge-float">⭐ 4.9 en reseñas locales</span>
-            <div class="scoop-illustration" aria-hidden="true">🍨</div>
-            <h3>Tarrina Artesanal 500g</h3>
-            <p>Elige hasta 3 sabores del día listos para llevar o recibir en casa.</p>
-            <span class="price-tag">Desde 11,50 €</span>
+        <div class="hero-showcase reveal">
+          <div class="hero-art-stage" id="hero-art-stage">
+            <img
+              src="./img/fondo.webp"
+              alt="Bolas de helado artesanal de fresa, pistacho y mango"
+              id="hero-art-img"
+            />
+            <div class="art-mood-overlay" id="art-mood-overlay" aria-hidden="true"></div>
+
+            <div class="flavor-switcher-bar" role="group" aria-label="Destacar sabor en la ilustración">
+              <button type="button" class="flavor-pill active" data-mood="rgba(230, 72, 98, 0.14)" data-label="🍓 Fresa Silvestre" data-msg="Hola! Quiero pedir helado de Fresa Silvestre">Fresa</button>
+              <button type="button" class="flavor-pill" data-mood="rgba(56, 152, 88, 0.16)" data-label="🥜 Pistacho Tostado" data-msg="Hola! Quiero pedir helado de Pistacho Tostado">Pistacho</button>
+              <button type="button" class="flavor-pill" data-mood="rgba(245, 158, 11, 0.17)" data-label="🥭 Mango & Maracuyá" data-msg="Hola! Quiero pedir sorbete de Mango y Maracuyá">Mango</button>
+            </div>
+
+            <a
+              href="https://wa.me/34600123456?text=Hola!%20Quiero%20pedir%20helado%20de%20Fresa%20Silvestre"
+              target="_blank"
+              rel="noopener"
+              class="art-caption-cta"
+              id="art-caption-cta"
+            >
+              <span id="art-active-label">🍓 Fresa Silvestre</span>
+              <strong>Pedir este sabor →</strong>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sabores estrella con hover de color -->
-    <section class="section section-alt">
+    <!-- Sabores destacados con cambio de color en hover -->
+    <section class="section section-colorful">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow">Favoritos de la casa</span>
-          <h2>Los más pedidos esta semana</h2>
-          <p>Pasa el cursor sobre cada sabor para descubrir su textura y notas aromáticas.</p>
+          <span class="eyebrow">Los favoritos del barrio</span>
+          <h2>Pasa el cursor por cada sabor</h2>
+          <p>Cada tarjeta toma el tono del sabor al acercarte y te permite pedirlo al instante.</p>
         </div>
 
-        <div class="cards-grid">
-          <article class="card flavor-card reveal" data-flavor-color="#d8e5c8">
-            <div class="flavor-splash" aria-hidden="true"></div>
-            <div class="card-body">
-              <div class="card-top">
-                <span class="tag tag-crema">Crema</span>
-                <span class="card-price">3,60 €</span>
+        <div class="flavors-grid">
+          <article class="flavor-card reveal" data-color="#ffe0e8" data-border="#f46b8a">
+            <div class="flavor-wave"></div>
+            <div class="flavor-content">
+              <div class="flavor-top">
+                <span class="flavor-badge badge-pink">🍓 Frutal</span>
+                <span class="flavor-price">3,50 €</span>
               </div>
-              <h3>Pistacho Puro de Bronte</h3>
-              <p>Tostado suavemente en nuestro obrador con un punto de sal marina y textura sedosa.</p>
+              <h3>Fresa Silvestre &amp; Lima</h3>
+              <p>Fresas frescas trituradas con un toque de ralladura de lima que despierta el paladar.</p>
+              <a href="https://wa.me/34600123456?text=Hola!%20Quiero%20pedir%20helado%20de%20Fresa%20Silvestre%20y%20Lima" target="_blank" rel="noopener" class="flavor-wa-link">
+                Pedir por WhatsApp →
+              </a>
             </div>
-            <a href="https://wa.me/34600123456?text=Hola,%20quiero%20encargar%20helado%20de%20Pistacho%20de%20Bronte" target="_blank" rel="noopener" class="order-link">Encargar sabor →</a>
           </article>
 
-          <article class="card flavor-card reveal" data-flavor-color="#fde4a6">
-            <div class="flavor-splash" aria-hidden="true"></div>
-            <div class="card-body">
-              <div class="card-top">
-                <span class="tag tag-vegano">Vegano</span>
-                <span class="card-price">3,40 €</span>
+          <article class="flavor-card reveal" data-color="#dcf5e4" data-border="#3ea361">
+            <div class="flavor-wave"></div>
+            <div class="flavor-content">
+              <div class="flavor-top">
+                <span class="flavor-badge badge-green">🥜 Clásico top</span>
+                <span class="flavor-price">3,80 €</span>
               </div>
-              <h3>Sorbete de Mango Alphonso</h3>
-              <p>70% pulpa natural de mango maduro, agua mineral y un toque cítrico refrescante.</p>
+              <h3>Pistacho Tostado</h3>
+              <p>Pasta de pistacho intensa, cremosa y con trocitos crujientes tostados en casa.</p>
+              <a href="https://wa.me/34600123456?text=Hola!%20Quiero%20pedir%20helado%20de%20Pistacho%20Tostado" target="_blank" rel="noopener" class="flavor-wa-link">
+                Pedir por WhatsApp →
+              </a>
             </div>
-            <a href="https://wa.me/34600123456?text=Hola,%20quiero%20encargar%20sorbete%20de%20Mango%20Alphonso" target="_blank" rel="noopener" class="order-link">Encargar sabor →</a>
           </article>
 
-          <article class="card flavor-card reveal" data-flavor-color="#e3cfc3">
-            <div class="flavor-splash" aria-hidden="true"></div>
-            <div class="card-body">
-              <div class="card-top">
-                <span class="tag tag-crema">Crema</span>
-                <span class="card-price">3,60 €</span>
+          <article class="flavor-card reveal" data-color="#fff0c2" data-border="#e59a16">
+            <div class="flavor-wave"></div>
+            <div class="flavor-content">
+              <div class="flavor-top">
+                <span class="flavor-badge badge-mango">🥭 Vegano</span>
+                <span class="flavor-price">3,50 €</span>
               </div>
-              <h3>Chocolate Negro 72% Origen</h3>
-              <p>Cacao intenso de comercio justo infusionado en frío durante 12 horas.</p>
+              <h3>Mango &amp; Maracuyá</h3>
+              <p>Tropical, vibrante y refrescante. Sin lácteos y con todo el sabor de la fruta madura.</p>
+              <a href="https://wa.me/34600123456?text=Hola!%20Quiero%20pedir%20sorbete%20de%20Mango%20y%20Maracuy%C3%A1" target="_blank" rel="noopener" class="flavor-wa-link">
+                Pedir por WhatsApp →
+              </a>
             </div>
-            <a href="https://wa.me/34600123456?text=Hola,%20quiero%20encargar%20helado%20de%20Chocolate%20Negro%2072%25" target="_blank" rel="noopener" class="order-link">Encargar sabor →</a>
           </article>
         </div>
 
-        <div class="center-cta reveal">
-          <a href="carta.html" class="btn-secondary">Ver los 12 sabores de la carta →</a>
+        <div class="center-btn reveal">
+          <a href="carta.html" class="btn-secondary">Explorar toda la carta de sabores →</a>
         </div>
       </div>
     </section>
 
-    <!-- Banner estratégico WhatsApp -->
+    <!-- Sección extra para dar más contenido y ritmo: Arma tu plan dulce -->
     <section class="section">
       <div class="container">
-        <div class="cta-banner reveal">
-          <div>
-            <h2>¿Tienes una cena o cumpleaños hoy?</h2>
-            <p>Preparamos tarrinas isotérmicas y tartas heladas por encargo en menos de 30 minutos.</p>
+        <div class="plan-box reveal">
+          <div class="plan-text">
+            <span class="eyebrow">Para tardes, cumples y planes</span>
+            <h2>¿Montamos tu mesa de helados?</h2>
+            <p>
+              Preparamos cajas de 6 o 12 tarrinas variadas, cucuruchos, toppings y servilletas listas para llevar o recoger sin esperas.
+            </p>
           </div>
-          <a href="https://wa.me/34600123456?text=Hola,%20quiero%20consultar%20disponibilidad%20de%20tarrinas%20para%20hoy" target="_blank" rel="noopener" class="btn-whatsapp">
-            Escribir ahora por WhatsApp
-          </a>
+          <div class="plan-actions">
+            <a href="https://wa.me/34600123456?text=Hola%20Chispa%20Gelato!%20Quiero%20consultar%20cajas%20de%20tarrinas%20para%20un%20plan%20o%20cumplea%C3%B1os" target="_blank" rel="noopener" class="btn-whatsapp">
+              Consultar por WhatsApp
+            </a>
+            <a href="contacto.html" class="btn-outline">Ir al formulario</a>
+          </div>
         </div>
       </div>
     </section>
@@ -129,18 +204,20 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div><strong>Gelato &amp; Calma</strong> · Calle Mayor 28, Madrid</div>
+      <div><strong>🍧 Chispa Gelato</strong> · Calle de las Flores 14, Valencia</div>
       <div class="footer-links">
-        <a href="carta.html">Carta</a>
+        <a href="index.html">Inicio</a>
+        <a href="carta.html">Sabores</a>
         <a href="obrador.html">El Obrador</a>
         <a href="contacto.html">Contacto</a>
       </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/34600123456?text=Hola%20Gelato%20%26%20Calma,%20tengo%20una%20consulta" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
-    <span class="wa-icon">💬</span>
-    <span class="wa-label">¿Hablamos?</span>
+  <!-- Botón flotante estratégico de WhatsApp -->
+  <a href="https://wa.me/34600123456?text=Hola%20Chispa%20Gelato!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido%20o%20consultar" target="_blank" rel="noopener" class="wa-float">
+    <span class="wa-bubble">💬</span>
+    <span class="wa-text">WhatsApp</span>
   </a>
 
   <script src="script.js"></script>

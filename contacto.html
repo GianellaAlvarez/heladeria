@@ -3,85 +3,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto y Encargos — Gelato & Calma</title>
+  <title>Contacto — Chispa Gelato</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <div class="top-ticker">
+    <div class="ticker-track">
+      <span>🍨 Barquillos recién horneados cada hora</span>
+      <span>•</span>
+      <span>🍓 Fresa silvestre y pistacho tostado en vitrina</span>
+      <span>•</span>
+      <span>🛵 Encargos rápidos por WhatsApp</span>
+      <span>•</span>
+      <span>🌿 Opciones veganas y sin gluten</span>
+      <span>•</span>
+      <span>🍨 Barquillos recién horneados cada hora</span>
+      <span>•</span>
+      <span>🍓 Fresa silvestre y pistacho tostado en vitrina</span>
+      <span>•</span>
+      <span>🛵 Encargos rápidos por WhatsApp</span>
+      <span>•</span>
+      <span>🌿 Opciones veganas y sin gluten</span>
+    </div>
+  </div>
+
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">Gelato &amp; Calma</a>
+      <a href="index.html" class="logo">
+        <span class="logo-scoop">🍧</span>
+        <span>Chispa<strong>Gelato</strong></span>
+      </a>
 
       <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
 
       <nav class="nav-links" id="nav-links">
         <a href="index.html">Inicio</a>
-        <a href="carta.html">Sabores y Carta</a>
+        <a href="carta.html">Sabores</a>
         <a href="obrador.html">El Obrador</a>
-        <a href="contacto.html" class="btn-small active">Contacto y Encargos</a>
+        <a href="contacto.html" class="nav-pill active">Contacto</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="page-header">
+    <section class="page-banner">
       <div class="container reveal">
-        <span class="eyebrow">Estamos cerca</span>
-        <h1>Contacto y encargos especiales</h1>
-        <p>Escríbenos para tartas heladas, eventos privados o cualquier duda sobre alérgenos.</p>
+        <span class="badge-fun">💌 Hablemos</span>
+        <h1>Contacto y encargos</h1>
+        <p>¿Quieres reservar tarrinas, pedir para un cumpleaños o resolver dudas? Escríbenos.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container contact-grid">
-        <div class="contact-details reveal">
-          <h2>Vía rápida por WhatsApp</h2>
-          <p>
-            Si necesitas confirmar qué sabores hay hoy en vitrina o reservar una tarrina para recoger hoy mismo, escríbenos directamente por WhatsApp.
-          </p>
+        <div class="contact-card reveal">
+          <h2>Respuesta rápida por WhatsApp</h2>
+          <p>Para pedidos del día o preguntar qué sabores acaban de salir, el chat directo es lo más rápido.</p>
 
-          <a href="https://wa.me/34600123456?text=Hola%20Gelato%20%26%20Calma,%20quisiera%20hacer%20un%20encargo" target="_blank" rel="noopener" class="btn-whatsapp">
-            Abrir chat en WhatsApp
+          <a href="https://wa.me/34600123456?text=Hola%20Chispa%20Gelato!%20Quiero%20hacer%20un%20encargo" target="_blank" rel="noopener" class="btn-whatsapp">
+            Abrir WhatsApp directo
           </a>
 
-          <div class="direct-list">
-            <p><strong>Dirección:</strong> Calle Mayor 28, 28013 Madrid</p>
-            <p><strong>Teléfono:</strong> +34 600 123 456</p>
-            <p><strong>Correo:</strong> hola@gelatoycalma.ejemplo</p>
+          <div class="contact-meta">
+            <p><strong>📍 Dirección:</strong> Calle de las Flores 14, Valencia</p>
+            <p><strong>📞 Teléfono:</strong> +34 600 123 456</p>
+            <p><strong>✉️ Correo:</strong> hola@chispagelato.ejemplo</p>
           </div>
         </div>
 
         <form class="contact-form reveal" id="contact-form" novalidate>
-          <h3>Envíanos un mensaje</h3>
+          <h3>Formulario de contacto</h3>
 
           <label>
-            Nombre completo *
-            <input type="text" name="nombre" id="nombre" placeholder="Ej. Laura Gómez" required />
+            Tu nombre *
+            <input type="text" id="nombre" placeholder="Ej. Sofía Navarro" required />
           </label>
 
           <label>
             Correo electrónico *
-            <input type="email" name="email" id="email" placeholder="laura@correo.com" required />
+            <input type="email" id="email" placeholder="sofia@correo.com" required />
           </label>
 
           <label>
-            Motivo de consulta
-            <select name="motivo" id="motivo">
-              <option value="Encargo de tarrina / tarta">Encargo de tarrina o tarta helada</option>
-              <option value="Eventos y catering">Eventos y carrito de helados</option>
-              <option value="Alérgenos e ingredientes">Consulta sobre alérgenos</option>
-              <option value="Otro">Otro motivo</option>
+            ¿En qué te ayudamos?
+            <select id="motivo">
+              <option value="Encargo de tarrinas">Encargo de tarrinas para llevar</option>
+              <option value="Cumpleaños o evento">Cumpleaños o evento</option>
+              <option value="Alérgenos o veganos">Duda sobre alérgenos o veganos</option>
+              <option value="Otro">Otra consulta</option>
             </select>
           </label>
 
           <label>
             Mensaje *
-            <textarea name="mensaje" id="mensaje" rows="4" placeholder="Cuéntanos qué necesitas y para qué fecha..." required></textarea>
+            <textarea id="mensaje" rows="4" placeholder="Cuéntanos qué sabores te apetecen o qué necesitas..." required></textarea>
           </label>
 
-          <button type="submit" class="btn-primary full-width">Enviar solicitud</button>
+          <button type="submit" class="btn-primary full-w">Enviar mensaje</button>
           <p class="form-status" id="form-status" aria-live="polite"></p>
         </form>
       </div>
@@ -90,18 +113,19 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div><strong>Gelato &amp; Calma</strong> · Calle Mayor 28, Madrid</div>
+      <div><strong>🍧 Chispa Gelato</strong> · Calle de las Flores 14, Valencia</div>
       <div class="footer-links">
         <a href="index.html">Inicio</a>
-        <a href="carta.html">Carta</a>
+        <a href="carta.html">Sabores</a>
         <a href="obrador.html">El Obrador</a>
+        <a href="contacto.html">Contacto</a>
       </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/34600123456?text=Hola%20Gelato%20%26%20Calma,%20tengo%20una%20consulta" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
-    <span class="wa-icon">💬</span>
-    <span class="wa-label">¿Hablamos?</span>
+  <a href="https://wa.me/34600123456?text=Hola%20Chispa%20Gelato!%20Tengo%20una%20consulta" target="_blank" rel="noopener" class="wa-float">
+    <span class="wa-bubble">💬</span>
+    <span class="wa-text">WhatsApp</span>
   </a>
 
   <script src="script.js"></script>

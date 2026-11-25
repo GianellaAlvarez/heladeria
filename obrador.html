@@ -3,85 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El Obrador — Gelato & Calma</title>
+  <title>El Obrador — Chispa Gelato</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <div class="top-ticker">
+    <div class="ticker-track">
+      <span>🍨 Barquillos recién horneados cada hora</span>
+      <span>•</span>
+      <span>🍓 Fresa silvestre y pistacho tostado en vitrina</span>
+      <span>•</span>
+      <span>🛵 Encargos rápidos por WhatsApp</span>
+      <span>•</span>
+      <span>🌿 Opciones veganas y sin gluten</span>
+      <span>•</span>
+      <span>🍨 Barquillos recién horneados cada hora</span>
+      <span>•</span>
+      <span>🍓 Fresa silvestre y pistacho tostado en vitrina</span>
+      <span>•</span>
+      <span>🛵 Encargos rápidos por WhatsApp</span>
+      <span>•</span>
+      <span>🌿 Opciones veganas y sin gluten</span>
+    </div>
+  </div>
+
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">Gelato &amp; Calma</a>
+      <a href="index.html" class="logo">
+        <span class="logo-scoop">🍧</span>
+        <span>Chispa<strong>Gelato</strong></span>
+      </a>
 
       <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
 
       <nav class="nav-links" id="nav-links">
         <a href="index.html">Inicio</a>
-        <a href="carta.html">Sabores y Carta</a>
+        <a href="carta.html">Sabores</a>
         <a href="obrador.html" class="active">El Obrador</a>
-        <a href="contacto.html" class="btn-small">Contacto y Encargos</a>
+        <a href="contacto.html" class="nav-pill">Contacto</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="page-header">
+    <section class="page-banner">
       <div class="container reveal">
-        <span class="eyebrow">Nuestra filosofía</span>
-        <h1>Ingredientes reales, cero atajos.</h1>
-        <p>Elaboramos cada cubeta a la vista del público respetando los tiempos de maduración.</p>
+        <span class="badge-fun">🥣 Así trabajamos</span>
+        <h1>Hecho con alegría y buena materia prima</h1>
+        <p>Batimos cada día en nuestro taller para que cada bola llegue fresca y cremosa.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container about-grid">
-        <div class="story-content reveal">
-          <h2>Por qué nuestro helado sabe diferente</h2>
+      <div class="container obrador-grid">
+        <div class="obrador-story reveal">
+          <h2>Nada de congelados olvidados</h2>
           <p>
-            En <strong>Gelato &amp; Calma</strong> no utilizamos polvos preparados ni grasas vegetales refinadas. Trabajamos directamente con ganaderías de pastoreo de la sierra y productores locales de fruta.
-          </p>
-          <p>
-            Batimos a baja velocidad para incorporar menos aire: el resultado es un helado más denso, cremoso y servido a la temperatura justa para no anestesiar el paladar.
+            En <strong>Chispa Gelato</strong> empezamos cada mañana pelando fruta, tostando frutos secos y preparando las bases con leche fresca. Así conseguimos colores vivos y sabores limpios sin depender de colorantes.
           </p>
 
-          <!-- Contadores animados -->
-          <div class="stats-row">
-            <div class="stat-item">
+          <div class="fun-stats">
+            <div class="fun-stat-card">
+              <strong class="counter" data-target="18" data-suffix="+">0+</strong>
+              <span>Sabores creados</span>
+            </div>
+            <div class="fun-stat-card">
               <strong class="counter" data-target="100" data-suffix="%">0%</strong>
-              <span>Ingredientes naturales</span>
+              <span>Artesanal en el día</span>
             </div>
-            <div class="stat-item">
-              <strong class="counter" data-target="12" data-suffix="h">0h</strong>
-              <span>Maduración en frío</span>
-            </div>
-            <div class="stat-item">
-              <strong class="counter" data-target="0" data-suffix="">0</strong>
-              <span>Colorantes artificiales</span>
-            </div>
-          </div>
-
-          <div class="pillars-grid">
-            <div class="pillar">
-              <strong>01. Leche fresca del día</strong>
-              <p>Pasteurizada suavemente cada mañana en nuestro obrador.</p>
-            </div>
-            <div class="pillar">
-              <strong>02. Fruta de temporada</strong>
-              <p>Si no es época de fresas, no hacemos helado de fresa.</p>
+            <div class="fun-stat-card">
+              <strong class="counter" data-target="7" data-suffix=" días">0 días</strong>
+              <span>Abiertos toda la semana</span>
             </div>
           </div>
         </div>
 
-        <aside class="info-box reveal">
-          <h3>Horario y Ubicación</h3>
-          <ul class="info-list">
-            <li><span>Lunes a jueves</span><strong>13:00 – 22:30</strong></li>
-            <li><span>Viernes y sábados</span><strong>12:30 – 00:00</strong></li>
-            <li><span>Domingos</span><strong>12:30 – 22:30</strong></li>
+        <aside class="schedule-card reveal">
+          <h3>Horario del local</h3>
+          <ul class="schedule-list">
+            <li><span>Lunes a jueves</span><strong>12:00 – 22:30</strong></li>
+            <li><span>Viernes y sábados</span><strong>12:00 – 23:30</strong></li>
+            <li><span>Domingos</span><strong>11:30 – 22:30</strong></li>
           </ul>
-          <p class="info-note">📍 Calle Mayor, 28 (Junto a la Plaza)</p>
-          <a href="contacto.html" class="btn-primary full-width">Cómo llegar y contacto</a>
+          <p class="schedule-address">📍 Calle de las Flores 14, Valencia</p>
+          <a href="https://wa.me/34600123456?text=Hola%20Chispa%20Gelato!%20Quiero%20saber%20qu%C3%A9%20sabores%20hay%20hoy" target="_blank" rel="noopener" class="btn-whatsapp full-w">
+            Preguntar por los sabores de hoy
+          </a>
         </aside>
       </div>
     </section>
@@ -89,18 +101,19 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div><strong>Gelato &amp; Calma</strong> · Calle Mayor 28, Madrid</div>
+      <div><strong>🍧 Chispa Gelato</strong> · Calle de las Flores 14, Valencia</div>
       <div class="footer-links">
         <a href="index.html">Inicio</a>
-        <a href="carta.html">Carta</a>
+        <a href="carta.html">Sabores</a>
+        <a href="obrador.html">El Obrador</a>
         <a href="contacto.html">Contacto</a>
       </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/34600123456?text=Hola%20Gelato%20%26%20Calma,%20me%20gustar%C3%ADa%20hacer%20una%20consulta" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
-    <span class="wa-icon">💬</span>
-    <span class="wa-label">¿Hablamos?</span>
+  <a href="https://wa.me/34600123456?text=Hola%20Chispa%20Gelato!%20Quiero%20consultar" target="_blank" rel="noopener" class="wa-float">
+    <span class="wa-bubble">💬</span>
+    <span class="wa-text">WhatsApp</span>
   </a>
 
   <script src="script.js"></script>
